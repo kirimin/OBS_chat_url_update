@@ -1,0 +1,12 @@
+{
+  "name": "obs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "get_current_streaming": "git+https://github.com/kirimin/get_youtube_current_streaming.git",
+    "obs-websocket-js": "^4.0.1"
+  },
+  "author": "kirimin",
+  "license": "ISC"
+}
