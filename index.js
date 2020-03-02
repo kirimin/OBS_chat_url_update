@@ -1,12 +1,22 @@
+const fs = require('fs');
 const OBSWebSocket = require('obs-websocket-js');
 const getStreaming = require('get_current_streaming');
 const CREDENSIALS = require('./credentials/credensials.js')
+const TOKEN_DIR = './credentials/';
+const TOKEN_PATH = TOKEN_DIR + 'token.json';
 
 const CHANNNEL_ID = "UCqN87Ye4TNLB04EFhxJ0L5w"
 const CHAT_SOURCE_NAME = "チャット欄"
 const LIVE_STATUS = "upcoming"
 
-getStreaming.getVideoId(CREDENSIALS, CHANNNEL_ID, LIVE_STATUS, callback)
+
+fs.readFile(TOKEN_PATH, function(err, token) {
+    if (err) {
+        console.log(err)
+    } else {
+        getStreaming.getVideoId(CREDENSIALS.CREDENSIALS, token, CHANNNEL_ID, LIVE_STATUS, callback)
+    }
+})
 
 function callback(videoId) {
     console.log(videoId)
